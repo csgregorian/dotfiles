@@ -14,13 +14,15 @@ export LC_ALL="en_US.utf8"
 export LANG="en_US.utf8"
 export LANGUAGE="en_US.utf8"
 
+export CLICOLOR=1
+
 # Aliases
 alias mongod="sudo mongod --smallfiles"
 
 alias profile="vim ~/.profile; source ~/.profile"
 
 alias sl='ls'
-alias ls='ls --color'        # Compact view, show colors
+alias ls='ls'        # Compact view, show colors
 alias la='ls -AF'       # Compact view, show hidden
 alias ll='ls -al'
 alias l='c;l1;'
