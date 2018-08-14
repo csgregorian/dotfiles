@@ -1,4 +1,4 @@
-ZSH_THEME="agnoster"
+ZSH_THEME="norm"
 
 # Environment Variables
 export GPG_TTY=$(tty)
