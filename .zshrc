@@ -1,19 +1,23 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+ZSH_THEME="agnoster"
 
+# Environment Variables
 export GPG_TTY=$(tty)
-
-alias git-done="git push && dev open pr"
-eval $(thefuck --alias)
 export DEFAULT_USER="christophergregorian"
+export EDITOR=vim
 
+# Aliases
+eval $(thefuck --alias)
+alias profile="$EDITOR ~/.zshrc && source ~/.zshrc"
+alias c=clear
+alias q=exit
+alias ll="ls -la"
+alias l="l1"
+alias gll="git lg"
+alias gs="git status"
+
+# ZSH config
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/christophergregorian/.oh-my-zsh
-
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -91,7 +95,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source ~/.bash_profile
-
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f /Users/christophergregorian/Downloads/google-cloud-sdk/path.zsh.inc ]; then
