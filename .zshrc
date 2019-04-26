@@ -14,6 +14,13 @@ alias ll="ls -la"
 alias l="l1"
 alias gll="git lg"
 alias gs="git status"
+alias glg="git log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%<(15,mtrunc)%an%Creset %<(50,trunc)%s %Cgreen(%cr)%Creset%C(yellow)%d' --abbrev-commit"
+
+fh() {
+  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+}
+
+alias weather="curl http://wttr.in/Windsor"
 
 # ZSH config
 # Path to your oh-my-zsh installation.
