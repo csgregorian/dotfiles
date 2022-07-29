@@ -103,13 +103,17 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/.bash_profile
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f /Users/christophergregorian/Downloads/google-cloud-sdk/path.zsh.inc ]; then
-  source '/Users/christophergregorian/Downloads/google-cloud-sdk/path.zsh.inc'
-fi
+# CTRL-G - Select recent git branch from fzf
+fzf-recent-branch-widget() {
+  setopt localoptions pipefail no_aliases 2> /dev/null
+  echo  # retain current prompt line
+  git for-each-ref --count=100 --sort=-committerdate refs/heads/ --format='%(refname:short)' \
+    | fzf --height 50 --preview 'git diff --stat --patch --color $(git merge-base master {-1}) {-1}' \
+    | xargs git checkout
+  local ret=$?
+  zle send-break
+  return $ret
+}
 
-# The next line enables shell command completion for gcloud.
-if [ -f /Users/christophergregorian/Downloads/google-cloud-sdk/completion.zsh.inc ]; then
-  source '/Users/christophergregorian/Downloads/google-cloud-sdk/completion.zsh.inc'
-fi
-
+zle     -N   fzf-recent-branch-widget
+bindkey '^G' fzf-recent-branch-widget
